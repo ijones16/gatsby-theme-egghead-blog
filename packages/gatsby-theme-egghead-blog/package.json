@@ -1,9 +1,20 @@
 {
-  "name": "gatsby-theme-egghead-blog",
+  "name": "@eggheadio/gatsby-theme-egghead-blog",
   "description": "This is a theme for egghead content creator blogs",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "author": "egghead.io <support@egghead.io> (https://egghead.io)",
-  "repository": "https://github.com/eggheadio/gatsby-starter-egghead-blog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggheadio/gatsby-theme-egghead-blog.git"
+  },
+  "license": "MIT",
+  "main": "gatsby-config.js",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "serve public/",
+    "now-build": "npm run build"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
@@ -22,6 +33,7 @@
     "gatsby-link": "^2.0.7",
     "gatsby-mdx": "^0.6.3",
     "gatsby-plugin-catch-links": "^2.0.9",
+    "gatsby-plugin-compile-es6-packages": "^1.1.0",
     "gatsby-plugin-emotion": "^4.0.1",
     "gatsby-plugin-feed": "^2.0.11",
     "gatsby-plugin-google-analytics": "^2.0.8",
@@ -58,14 +70,13 @@
     "prettier": "1.14.3"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "theme",
+    "blog",
+    "egghead"
   ],
-  "license": "MIT",
-  "main": "gatsby-config.js",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "serve public/",
-    "now-build": "npm run build"
-  }
+  "bugs": {
+    "url": "https://github.com/eggheadio/gatsby-theme-egghead-blog/issues"
+  },
+  "homepage": "https://github.com/eggheadio/gatsby-theme-egghead-blog#readme"
 }
