@@ -1,41 +1,89 @@
-# egghead.io creator MDX Blog Starter Project
+# gatsby-theme-egghead-blog
+This is a [theme](https://www.gatsbyjs.org/blog/2018-11-11-introducing-gatsby-themes/) version of our [gatsby-starter-egghead-blog](https://github.com/eggheadio/gatsby-starter-egghead-blog).
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/eggheadio/gatsby-starter-egghead-blog)
+## Installation
 
+```
+yarn add -D @eggheadio/gatsby-theme-egghead-blog
+```
 
-This is based on Robin Wieruch's https://github.com/rwieruch/gatsby-mdx-blog-starter-project
+## Using the theme
+Themes are in development so we have to use themes with `__experimentalThemes` like this in our `gatsby-config.js`:
 
-Lot's of nice pieces are also borrowed from Jason Lengstorf https://github.com/jlengstorf/lengstorf.com
+```
+// gatsby-config.js
+module.exports = {
+  siteMetadata: {
+    title: "YOUR SITE TITLE",
+    author: {
+      name: "YOUR NAME"
+    },
+    social: {
+      twitter: "twitter here",
+      githubUrl: "github here",
+      linkedinUrl: "linked in here"
+    },
+    keywords: ["keywordhere"],
+    image: "your-image.jpg",
+    canonicalUrl: "no",
+    description: "A DESCRIPTION",
+    siteUrl: "YOUR INTENDED URL"
+  },
+  __experimentalThemes: ['@eggheadio/gatsby-theme-egghead-blog'],
+}
+```
 
-A starter project in [Gatsby.js](https://www.gatsbyjs.org/) with [MDX](https://github.com/mdx-js/mdx).
+Now you will get all the functionality in your blog with a `gatsby-config.js` file and a `content/` directory.
 
-## Features
+Your example project will look like this:
+```
+content/
+  blog/
+    post1/
+      index.md
+    post2/
+      index.md
+    post3/
+      index.md
+gatsby-config.js
+package.json
+```
 
-- MDX: JavaScript/React in Markdown
-- Prism.js: Syntax Highlighting
-- Pagination
-- Emotion
-- Typography.js
-- Self-hosted fonts ([Inter UI](https://rsms.me/inter/))
-- Social media share buttons
-- Site & Theme config files
-- ConvertKit subscribe form (Formik and Yup)
-- Placeholder illustrations by [Katerina Limpitsouni](https://twitter.com/ninalimpi) from [undraw.co](https://undraw.co/)
+The markdown files expect optional frontmatter fields like the below:
 
-## [➞ Demo](https://egghead-gatsby-starter.netlify.com/)
+```md
+---
+title: My Blogpost
+slug: my-blogpost
+date: 2019-09-05
+published: true
+description: a blogpost description
+banner: /colocated-image.png
+categories: blog, post
+keywords: blogging, posting
+author: yourname
+---
+```
 
-## Setup
+## Override theme components (Component Shadowing)
 
-- `git clone git@github.com:eggheadio/gatsby-starter-egghead-blog.git`
-- `cd gatsby-starter-egghead-blog`
-- `npm install`
-- `npm run develop`
-- visit http://localhost:8000
+To override a theme component, you will need to add `src/gatsby-theme-egghead-blog`. You may override anything in the `gatsby-theme-egghead-blog/src` directory.
 
-## Setup via Gatsby CLI
+For example, if you would like to override the default `Header` component:
 
-- `gatsby new gatsby-starter-egghead-blog git@github.com:eggheadio/gatsby-starter-egghead-blog.git`
-- `cd gatsby-starter-egghead-blog`
-- `npm install`
-- `gatsby develop`
-- visit http://localhost:8000
+```js
+// src/gatsby-theme-egghead-blog/Header.js
+import React from 'react'
+
+class Header extends React.Component {
+    render(){
+        return (
+            <div>hello egghead</div>
+            )
+    }
+}
+
+export default Header
+```
+
+Now "hello egghead" will be rendered anywhere the old Header component was render.
