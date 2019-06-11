@@ -1,5 +1,8 @@
 {
     "private": true,
+    "scripts": {
+      "start": "yarn workspace starter start",
+    },
     "workspaces": [
         "packages/*",
         "starter"
